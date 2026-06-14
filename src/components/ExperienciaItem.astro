@@ -1,0 +1,55 @@
+---
+const { tipo, fecha, ubicacion, rol, empresa, descripcion, logo } = Astro.props;
+
+const isActual = tipo === 'actual';
+const isFormacion = tipo === 'formacion';
+
+// Definimos los colores base según el estado
+const colorEmpresa = isActual ? 'text-cyan-400' : (isFormacion ? 'text-orange-400' : 'text-gray-400');
+const colorFecha = isActual ? 'text-cyan-400' : 'text-gray-500';
+
+// Calculamos las clases del punto (Dot) directamente en JS para limpiar el HTML
+let clasesPunto = "absolute z-10 rounded-full transition-all duration-300 ";
+if (isActual) {
+  clasesPunto += "left-[4px] md:left-[192px] top-2 w-4 h-4 bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.7)] ring-4 ring-cyan-400/20";
+} else if (isFormacion) {
+  clasesPunto += "left-[7px] md:left-[195px] top-2.5 w-2.5 h-2.5 bg-orange-400 group-hover:scale-125 group-hover:bg-orange-300";
+} else {
+  clasesPunto += "left-[7px] md:left-[195px] top-2.5 w-2.5 h-2.5 bg-gray-600 group-hover:bg-gray-400 group-hover:scale-125";
+}
+---
+
+<div class="relative pl-10 md:pl-0 flex flex-col md:flex-row gap-2 md:gap-12 group">
+  
+  {/* Izquierda: Fechas */}
+  <div class="md:w-40 shrink-0 md:text-right pt-1.5 flex flex-col">
+    <span class={`font-mono text-sm font-medium transition-colors ${colorFecha}`}>
+      {fecha}
+    </span>
+    <span class="font-mono text-xs text-gray-500 mt-1">{ubicacion}</span>
+  </div>
+
+  {/* Centro: El punto (Dot) limpio y sin condicionales */}
+  <div class={clasesPunto}></div>
+
+  {/* Derecha: Contenido */}
+  <div class="md:flex-1 pb-2">
+    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2">
+      {logo && (
+        <img src={logo} alt={`Logo ${empresa}`} class="w-8 h-8 mr-1 rounded bg-gray-800 border border-gray-700 p-1 object-contain shrink-0" />
+      )}
+      <h3 class="text-xl font-bold text-white transition-colors">{rol}</h3>
+      <span class={`font-semibold ${colorEmpresa}`}>@{empresa}</span>
+      
+      {isActual && (
+        <span class="ml-2 bg-cyan-400/10 text-cyan-300 border border-cyan-400/20 px-2 py-0.5 rounded text-[10px] font-bold font-mono uppercase">
+          Current
+        </span>
+      )}
+    </div>
+    
+    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+      {descripcion}
+    </p>
+  </div>
+</div>

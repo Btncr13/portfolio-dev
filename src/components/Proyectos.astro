@@ -1,0 +1,59 @@
+---
+import ProyectoCard from './ProyectoCard.astro';
+---
+
+<section id="proyectos" class="py-24 max-w-6xl mx-auto scroll-mt-24">
+  
+  <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-800 pb-6">
+    <div>
+      <span class="text-cyan-400 font-mono text-sm tracking-widest uppercase">03 / Proyectos</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mt-2">Proyectos Destacados</h2>
+    </div>
+    <div class="text-gray-500 font-mono text-sm mb-2">
+      [ 3 proyectos ]
+    </div>
+  </div>
+ 
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+    <ProyectoCard 
+      titulo="Gestfincas"
+      descripcion="Aplicación integral para la administración de comunidades. Automatiza cobros, generación de reportes y mejora la comunicación entre vecinos."
+      etiquetas={[
+        { nombre: "JavaScript", color: "f7df1e" },
+        { nombre: "Node.js", color: "339933" },
+        { nombre: "MySQL", color: "e38c00" }
+      ]}
+      linkRepo="https://github.com/Btncr13/gestfincas"
+      imagen="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
+      colorAcento="#38bdf8"
+    />
+
+    <ProyectoCard 
+      titulo="Pipeline Rescue-Animal"
+      descripcion="Arquitectura de datos end-to-end escalable. Ingesta, transformación y visualización para analizar la adopción y rescate de animales."
+      etiquetas={[
+        { nombre: "Python", color: "3776ab" },
+        { nombre: "Snowflake", color: "29b5e8" },
+        { nombre: "dbt", color: "ff694b" },
+        { nombre: "Power BI", color: "f2c811" }
+      ]}
+      linkRepo="https://github.com/Btncr13/pipeline-rescue"
+      imagen="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2070&auto=format&fit=crop" 
+      colorAcento="#f89820"
+    />
+
+    <ProyectoCard 
+      titulo="Drop 5: E-commerce"
+      descripcion="Plataforma de ventas Flash diseñada para soportar picos masivos de tráfico concurrentes con un sistema de control de stock ultrapreciso."
+      etiquetas={[
+        { nombre: "PHP", color: "777bb4" },
+        { nombre: "CSS", color: "1572b6" },
+        { nombre: "MariaDB", color: "c0765a" }
+      ]}
+      linkRepo="https://github.com/Btncr13/tienda_enfoque"
+      imagen="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop" 
+      colorAcento="#c084fc"
+    />
+
+  </div>
+</section>
