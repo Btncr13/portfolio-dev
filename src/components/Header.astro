@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<header id="main-header" class="fixed top-0 left-0 z-50 w-full transition-all duration-300 h-20 flex items-center border-b border-transparent">
+  <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between px-4 md:px-10 lg:px-16">
+    
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-500 to-cyan-400 flex items-center justify-center font-mono font-bold text-white shadow-lg">
+        CB
+      </div>
+      <span class="font-mono text-cyan-400 tracking-[0.2em] font-medium hidden sm:block">CESAR.DEV</span>
+    </a>
+
+    <nav class="flex items-center gap-6">
+      <ul class="hidden md:flex gap-1 font-sans font-medium text-sm text-gray-400">
+        <li><a href="#" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Inicio</a></li>
+        <li><a href="#sobre-mi" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Sobre mí</a></li>
+        <li><a href="#stack" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Stack</a></li>
+        <li><a href="#proyectos" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Proyectos</a></li>
+        <li><a href="#trayectoria" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Trayectoria</a></li>
+      </ul>
+
+      <div class="hidden sm:flex gap-2 border-l border-gray-800 pl-6 ml-2">
+        <a href="https://github.com/Btncr13" target="_blank" class="p-2 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-md transition-all">
+          <Icon name="simple-icons:github" class="w-5 h-5" />
+        </a>
+        <a href="https://www.linkedin.com/in/cesarbetancorcano/" target="_blank" class="p-2 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-md transition-all">
+          <Icon name="simple-icons:linkedin" class="w-5 h-5" />
+        </a>
+      </div>
+
+      <a href="mailto:betancor13@gmail.com" class="ml-4 inline-flex items-center font-bold py-2 px-6 rounded-lg transition-all duration-300 border border-orange-500 text-base bg-orange-500 hover:bg-orange-400 text-gray-900 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/20">
+        Contactar
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.classList.add('bg-gray-950/80', 'backdrop-blur-md', 'border-gray-800');
+    } else {
+      header?.classList.remove('bg-gray-950/80', 'backdrop-blur-md', 'border-gray-800');
+    }
+  });
+</script>

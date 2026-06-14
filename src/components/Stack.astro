@@ -1,0 +1,65 @@
+---
+import Tecnologia from './Tecnologia.astro';
+---
+
+<section id="stack" class="relative w-[100vw] left-1/2 -translate-x-1/2 bg-gray-900/30 border-y border-gray-800 py-24 scroll-mt-24">
+  <div class="max-w-6xl mx-auto px-8">
+    
+    <div class="mb-16 text-center">
+      <span class="text-cyan-400 font-mono text-sm tracking-widest uppercase">02 / Stack Tecnológico</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mt-2">Herramientas que utilizo</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+      
+      <div class="bg-gray-800/30 p-4 lg:p-5 rounded-xl border border-gray-700/50">
+        <h3 class="text-base lg:text-lg font-semibold text-white mb-6">Lenguajes</h3>
+        <div class="flex flex-col gap-3">
+          <Tecnologia nombre="Java" icono="openjdk" colorHex="f89820" />
+          <Tecnologia nombre="JavaScript" icono="javascript" colorHex="f7df1e" />
+          <Tecnologia nombre="PHP" icono="php" colorHex="777bb4" />
+          <Tecnologia nombre="Python" icono="python" colorHex="3776ab" />
+          <Tecnologia nombre="SQL" icono="mysql" colorHex="e38c00" />
+        </div>
+      </div>
+
+      <div class="bg-gray-800/30 p-4 lg:p-5 rounded-xl border border-gray-700/50">
+        <h3 class="text-base lg:text-lg font-semibold text-white mb-6">Frontend</h3>
+        <div class="flex flex-col gap-3">
+          <Tecnologia nombre="HTML" icono="html5" colorHex="e34f26" />
+          <Tecnologia nombre="CSS" icono="css3" colorHex="1572b6" />
+          <Tecnologia nombre="Bootstrap" icono="bootstrap" colorHex="7952b3" />
+          <Tecnologia nombre="Tailwind CSS" icono="tailwindcss" colorHex="06b6d4" />
+          <Tecnologia nombre="Astro" icono="astro" colorHex="ff5d01" />
+        </div>
+      </div>
+
+      <div class="bg-gray-800/30 p-4 lg:p-5 rounded-xl border border-gray-700/50">
+        <h3 class="text-base lg:text-lg font-semibold text-white mb-6">Backend y Datos</h3>
+        <div class="flex flex-col gap-3">
+          <Tecnologia nombre="Node.js" icono="nodedotjs" colorHex="339933" />
+          <Tecnologia nombre="MariaDB" icono="mariadb" colorHex="c0765a" />
+          <Tecnologia nombre="Snowflake" icono="snowflake" colorHex="29b5e8" />
+          <Tecnologia nombre="dbt" icono="dbt" colorHex="ff694b" />
+        </div>
+      </div>
+
+      <div class="bg-gray-800/30 p-4 lg:p-5 rounded-xl border border-gray-700/50">
+        <h3 class="text-base lg:text-lg font-semibold text-white mb-6">Herramientas</h3>
+        <div class="flex flex-col gap-3">
+          <Tecnologia nombre="GitHub" icono="github" colorHex="ffffff" />
+          <Tecnologia nombre="XAMPP" icono="xampp" colorHex="fb7a24" />
+        </div>
+      </div>
+
+      <div class="bg-gray-800/30 p-4 lg:p-5 rounded-xl border border-gray-700/50">
+        <h3 class="text-base lg:text-lg font-semibold text-white mb-6">Aprendiendo</h3>
+        <div class="flex flex-col gap-3">
+          <Tecnologia nombre="Docker" icono="docker" colorHex="2496ed" />
+          <Tecnologia nombre="React" icono="react" colorHex="61dafb" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
