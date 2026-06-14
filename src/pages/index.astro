@@ -7,50 +7,31 @@ import SobreMi from '../components/SobreMi.astro';
 import Stack from '../components/Stack.astro';
 import Proyectos from '../components/Proyectos.astro';
 import Trayectoria from '../components/Trayectoria.astro';
+import Footer from '../components/Footer.astro';
 
 const titulo = "Portfolio | Data Engineer & Web Developer";
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>{titulo}</title>
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{titulo}</title>
+  </head>
 	
 	<body class="bg-gray-950 text-gray-50 font-sans p-8 overflow-x-hidden">
     
     <Header /> 
+    
     <main class="max-w-6xl mx-auto p-8 mt-20 space-y-32 animar-entrada">
-      
-    <Hero />
-
-	<SobreMi />
-		
-	<Stack />
-
-	<Proyectos />
-
-	<Trayectoria />
-
+      <Hero />
+      <SobreMi />
+		  <Stack />
+      <Proyectos />
+  	  <Trayectoria />
 		</main>
 
-	<footer class="max-w-6xl mx-auto px-8 py-12 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-gray-500 text-sm">
-          © {new Date().getFullYear()} Tu Nombre. Casi todos los derechos reservados.
-        </p>
-        
-        <div class="flex gap-6">
-          <a href="https://github.com/Btncr13" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors">
-            <span class="sr-only">GitHub</span>
-            <img src="https://api.iconify.design/simple-icons:github.svg?color=%236b7280" class="w-6 h-6 hover:opacity-80 transition-opacity" alt="GitHub" />
-          </a>
-          <a href="https://www.linkedin.com/in/cesarbetancorcano/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors">
-            <span class="sr-only">LinkedIn</span>
-            <img src="https://api.iconify.design/simple-icons:linkedin.svg?color=%236b7280" class="w-6 h-6 hover:opacity-80 transition-opacity" alt="LinkedIn" />
-          </a>
-        </div>
-      </footer>
-
+	  <Footer />
+    
   </body>
 </html>

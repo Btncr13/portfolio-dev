@@ -1,5 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
+
+const navLinks = [
+  { nombre: 'Inicio', url: '#' },
+  { nombre: 'Sobre mí', url: '#sobre-mi' },
+  { nombre: 'Stack', url: '#stack' },
+  { nombre: 'Proyectos', url: '#proyectos' },
+  { nombre: 'Trayectoria', url: '#trayectoria' }
+];
 ---
 
 <header id="main-header" class="fixed top-0 left-0 z-50 w-full transition-all duration-300 h-20 flex items-center border-b border-transparent">
@@ -14,11 +22,11 @@ import { Icon } from 'astro-icon/components';
 
     <nav class="flex items-center gap-6">
       <ul class="hidden md:flex gap-1 font-sans font-medium text-sm text-gray-400">
-        <li><a href="#" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Inicio</a></li>
-        <li><a href="#sobre-mi" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Sobre mí</a></li>
-        <li><a href="#stack" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Stack</a></li>
-        <li><a href="#proyectos" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Proyectos</a></li>
-        <li><a href="#trayectoria" class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">Trayectoria</a></li>
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.url} class="px-4 py-2 rounded-md hover:bg-gray-800/50 hover:text-white transition-all duration-200">{link.nombre}</a>
+          </li>
+        ))}
       </ul>
 
       <div class="hidden sm:flex gap-2 border-l border-gray-800 pl-6 ml-2">
