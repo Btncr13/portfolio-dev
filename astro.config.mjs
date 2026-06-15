@@ -1,15 +1,10 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-
 import tailwindcss from '@tailwindcss/vite';
 
-import icon from 'astro-icon';
-
-// https://astro.build/config
 export default defineConfig({
+  site: 'https://Btncr13.github.io',
+  base: '/nombre-de-tu-repositorio-nuevo', // <-- ¡Súper importante! Cambia esto por el nombre real de tu repo
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
-
-  integrations: [icon()]
 });
