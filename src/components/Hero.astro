@@ -1,65 +1,105 @@
 ---
-import BotonContacto from './BotonContacto.astro';
+import BotonContacto from "./BotonContacto.astro";
 ---
 
 <section id="hero" class="relative pt-32 pb-20">
-
   <!-- Fondo de rejilla -->
-  <div class="absolute -top-40 -bottom-32 left-1/2 w-screen -translate-x-1/2 opacity-[0.03] pointer-events-none -z-10" style="background-image: linear-gradient(to right, #38bdf8 1px, transparent 1px), linear-gradient(to bottom, #38bdf8 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); mask-image: linear-gradient(to bottom, black 60%, transparent 100%);"></div>
+  <div
+    class="absolute -top-40 -bottom-32 left-1/2 w-screen -translate-x-1/2 opacity-[0.03] pointer-events-none -z-10"
+    style="background-image: linear-gradient(to right, #38bdf8 1px, transparent 1px), linear-gradient(to bottom, #38bdf8 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); mask-image: linear-gradient(to bottom, black 60%, transparent 100%);"
+  >
+  </div>
   <div class="relative max-w-6xl mx-auto px-8">
-    
     <!-- 1. BLOQUE SUPERIOR -->
-    <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
-    
+    <div
+      class="flex flex-col-reverse md:flex-row items-center justify-between gap-12"
+    >
       <!-- Contenido de Texto -->
       <div class="md:w-3/5 space-y-6">
-
         <!-- Indicador de estado -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-900/50 bg-blue-950/20 text-blue-400 text-xs font-mono tracking-widest uppercase">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-900/50 bg-blue-950/20 text-blue-400 text-xs font-mono tracking-widest uppercase"
+        >
           <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+            ></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"
+            ></span>
           </span>
           Hello There!
         </div>
 
-        <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400">
+        <h1
+          class="text-6xl md:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400"
+        >
           César Betancor
         </h1>
-        
+
         <h2 class="text-4xl md:text-6xl font-bold text-white">
-          Data Engineer & <br> Full-Stack Developer
+          Data Engineer & <br /> Full-Stack Developer
         </h2>
-        
+
         <p class="text-lg text-gray-400 leading-relaxed max-w-xl">
-          Disfruto de los retos lógicos y de escribir código limpio y ordenado. Busco crear soluciones que funcionen bien, y si no sé algo, lo aprendo rápido.
+          Disfruto de los retos lógicos y de escribir código limpio y ordenado.
+          Busco crear soluciones que funcionen bien, y si no sé algo, lo aprendo
+          rápido.
         </p>
 
         <!-- Botonera -->
         <div class="flex flex-wrap gap-4 pt-4">
-          <BotonContacto texto="Contactar" link="mailto:betancor13@gmail.com" icono="lucide:mail" variante="primario" />
-          <BotonContacto texto="Proyectos" link="#proyectos" icono="lucide:arrow-right" variante="secundario" />
-          <BotonContacto texto="Descargar CV" link="/curriculum.pdf" icono="lucide:file-text" variante="secundario" />        
+          <BotonContacto
+            texto="Contactar"
+            link="mailto:betancor13@gmail.com"
+            icono="lucide:mail"
+            variante="primario"
+          />
+          <BotonContacto
+            texto="Proyectos"
+            link="#proyectos"
+            icono="lucide:arrow-right"
+            variante="secundario"
+          />
+          <BotonContacto
+            texto="Descargar CV"
+            link="/curriculum.pdf"
+            icono="lucide:file-text"
+            variante="secundario"
+          />
         </div>
       </div>
 
       <!-- Foto de Perfil con resplandor -->
       <div class="relative group">
-        <div class="absolute inset-0 bg-linear-to-tr from-blue-500 to-cyan-400 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-        
+        <div
+          class="absolute inset-0 bg-linear-to-tr from-blue-500 to-cyan-400 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"
+        >
+        </div>
+
         <!-- Contenedor principal para centrarlo -->
         <div class="relative group w-72 h-72">
-          
           <!-- Efecto de resplandor (Glow) detrás -->
-          <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div
+            class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          >
+          </div>
 
           <!-- El borde degradado que gira (sin mover la foto) -->
-          <div class="absolute inset-0 rounded-full bg-linear-to-tr from-blue-500 via-cyan-400 to-orange-400 animate-[spin_8s_linear_infinite] opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-          
+          <div
+            class="absolute inset-0 rounded-full bg-linear-to-tr from-blue-500 via-cyan-400 to-orange-400 animate-[spin_8s_linear_infinite] opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+          >
+          </div>
+
           <!-- La foto fija -->
           <div class="absolute inset-1 rounded-full bg-gray-950 p-1">
-            <div class="w-full h-full rounded-full overflow-hidden border-2 border-gray-950">
-              <img src="/avatar.webp" alt="César Betancor" class="w-full h-full object-cover" />
+            <div
+              class="w-full h-full rounded-full overflow-hidden border-2 border-gray-950"
+            >
+              <img
+                src="/avatar.webp"
+                alt="César Betancor"
+                class="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
