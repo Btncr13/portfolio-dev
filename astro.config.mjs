@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://Btncr13.github.io',
-  base: '/cbdev', // <-- ¡Súper importante! Cambia esto por el nombre real de tu repo
+  base: '/cbdev',
   vite: {
     plugins: [tailwindcss()],
   },
