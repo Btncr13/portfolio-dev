@@ -1,12 +1,12 @@
 ---
-const { texto, link, icono, variante = "secundario", colorIcono = "ffffff" } = Astro.props;
+const { texto, link = '', icono, variante = "secundario", colorIcono = "ffffff" } = Astro.props;
 
 // Clases comunes para todos los botones
 const clasesBase = "inline-flex items-center gap-2 font-semibold py-2 px-6 rounded-lg transition-all duration-300 border text-base";
 
 // Clases específicas para cada estilo
 const clasesPrimario = "bg-orange-500 hover:bg-orange-400 text-gray-900 border-orange-500 font-bold hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/20";
-const clasesSecundario = "bg-transparent text-blue-400 border-blue-400 hover:bg-blue-400/10 hover:border-blue-300 hover:text-blue-300 hover:shadow-lg hover:shdow-blue-500/30";
+const clasesSecundario = "bg-transparent text-blue-400 border-blue-400 hover:bg-blue-400/10 hover:border-blue-300 hover:text-blue-300 hover:shadow-lg hover:shadow-blue-500/30";
 
 // Estilo final en función de la prop "variante"
 const estiloFinal = variante === "primario" ? clasesPrimario : clasesSecundario;
@@ -16,7 +16,7 @@ const iconoHex = variante === "secundario" && colorIcono === "ffffff" ? "60a5fa"
 const urlIcono = `https://api.iconify.design/${icono}.svg?color=%23${iconoHex}`;
 
 // Si es un correo o un enlace interno (#), no queremos que se abra en una pestaña nueva (_blank)
-const targetLink = link.startsWith('mailto:') || link.startsWith('#') ? '_self' : '_blank';
+const targetLink = link?.startsWith('mailto:') || link?.startsWith('#') ? '_self' : '_blank';
 ---
 
 <a href={link} target={targetLink} rel="noopener noreferrer" class={`${clasesBase} ${estiloFinal}`}>
