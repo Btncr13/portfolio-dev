@@ -1,13 +1,18 @@
 ---
 import { Icon } from 'astro-icon/components';
-import BotonContacto from './BotonContacto.astro';
 
 const navLinks = [
   { nombre: 'Inicio', url: '#' },
   { nombre: 'Sobre mí', url: '#sobre-mi' },
   { nombre: 'Stack', url: '#stack' },
   { nombre: 'Proyectos', url: '#proyectos' },
-  { nombre: 'Trayectoria', url: '#trayectoria' }
+  { nombre: 'Trayectoria', url: '#trayectoria' },
+  { nombre: 'Contacto', url: '#contacto' }
+];
+
+const socialLinks = [
+  { url: 'https://github.com/Btncr13', label: 'Perfil de GitHub', icono: 'simple-icons:github' },
+  { url: 'https://www.linkedin.com/in/cesarbetancorcano/', label: 'Perfil de LinkedIn', icono: 'simple-icons:linkedin' }
 ];
 ---
 
@@ -18,7 +23,7 @@ const navLinks = [
       <div class="w-10 h-10 rounded-lg bg-linear-to-tr from-blue-500 to-cyan-400 flex items-center justify-center font-mono font-bold text-white shadow-lg">
         CB
       </div>
-      <span class="font-mono text-cyan-400 tracking-[0.2em] font-medium hidden sm:block">CESAR.DEV</span>
+      <span class="font-mono text-cyan-400 tracking-widest font-medium hidden sm:block">CESAR.BETANCOR</span>
     </a>
 
     <nav class="flex items-center gap-6">
@@ -31,21 +36,11 @@ const navLinks = [
       </ul>
 
       <div class="hidden sm:flex gap-2 border-l border-gray-800 pl-6 ml-2">
-        <a href="https://github.com/Btncr13" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub" class="p-2 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-md transition-all">
-          <Icon name="simple-icons:github" class="w-5 h-5" />
-        </a>
-        <a href="https://www.linkedin.com/in/cesarbetancorcano/" target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn" class="p-2 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-md transition-all">
-          <Icon name="simple-icons:linkedin" class="w-5 h-5" />
-        </a>
-      </div>
-
-      <div class="ml-4">
-        <BotonContacto
-          texto="Contactar"
-          link="mailto:betancor13@gmail.com"
-          icono="lucide:mail"
-          variante="primario"
-        />
+        {socialLinks.map((social) => (
+          <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.label} class="p-2 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-md transition-all">
+            <Icon name={social.icono} class="w-5 h-5" />
+          </a>
+        ))}
       </div>
     </nav>
   </div>

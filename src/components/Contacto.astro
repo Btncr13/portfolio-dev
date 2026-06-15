@@ -1,4 +1,18 @@
 ---
+const infoContacto = [
+  { plataforma: 'Email', url: 'mailto:betancor13@gmail.com', valor: 'betancor13@gmail.com', target: '_self' },
+  { plataforma: 'LinkedIn', url: 'https://linkedin.com/in/cesarbetancorcano', valor: '/in/cesarbetancorcano', target: '_blank' },
+  { plataforma: 'GitHub', url: 'https://github.com/Btncr13', valor: 'github.com/Btncr13', target: '_blank' }
+];
+
+const camposFormulario = [
+  { id: 'nombre', tipo: 'text', label: 'Nombre', placeholder: 'Tu nombre', esTextarea: false },
+  { id: 'email', tipo: 'email', label: 'Email', placeholder: 'tu@email.com', esTextarea: false },
+  { id: 'mensaje', label: 'Mensaje', placeholder: 'Hola, te escribo para...', esTextarea: true, filas: 4 }
+];
+
+const clasesLabel = "block text-xs font-mono text-gray-500 mb-2 uppercase tracking-wide";
+const clasesInput = "w-full bg-gray-950/50 border border-gray-800 rounded-lg px-4 py-3 text-white placeholder-gray-700 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300";
 ---
 
 <section id="contacto" class="py-24 scroll-mt-24">
@@ -8,31 +22,22 @@
     <div>
       <span class="text-cyan-400 font-mono text-sm tracking-widest uppercase">06 / Contacto</span>
       <h2 class="text-4xl md:text-5xl font-bold text-white mt-2 mb-6">
-        Construyamos algo <span class="text-blue-400">juntos</span>
+        Construyamos algo <span class="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400">juntos</span>
       </h2>
+      <br>
       <p class="text-gray-400 text-lg leading-relaxed mb-12">
-        ¿Tienes un proyecto, una oportunidad o simplemente quieres hablar de datos? Escríbeme y te respondo en menos de 24 horas.
+        ¿Tienes un proyecto, una oportunidad o simplemente quieres hablar de algo? Escríbeme y te respondo lo antes posible.
       </p>
 
       <div class="space-y-6">
-        <div class="flex items-center border-b border-gray-800/50 pb-4 group">
-          <span class="font-mono text-gray-500 text-sm w-28 shrink-0 group-hover:text-gray-400 transition-colors">Email</span>
-          <a href="mailto:betancor13@gmail.com" class="text-gray-300 hover:text-cyan-400 transition-colors text-base font-medium truncate">
-            betancor13@gmail.com
-          </a>
-        </div>
-        <div class="flex items-center border-b border-gray-800/50 pb-4 group">
-          <span class="font-mono text-gray-500 text-sm w-28 shrink-0 group-hover:text-gray-400 transition-colors">LinkedIn</span>
-          <a href="https://linkedin.com/in/cesarbetancorcano" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-cyan-400 transition-colors text-base font-medium truncate">
-            /in/cesarbetancorcano
-          </a>
-        </div>
-        <div class="flex items-center border-b border-gray-800/50 pb-4 group">
-          <span class="font-mono text-gray-500 text-sm w-28 shrink-0 group-hover:text-gray-400 transition-colors">GitHub</span>
-          <a href="https://github.com/Btncr13" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-cyan-400 transition-colors text-base font-medium truncate">
-            github.com/Btncr13
-          </a>
-        </div>
+        {infoContacto.map((info) => (
+          <div class="flex items-center border-b border-gray-800/50 pb-4 group">
+            <span class="font-mono text-gray-500 text-sm w-28 shrink-0 group-hover:text-gray-400 transition-colors">{info.plataforma}</span>
+            <a href={info.url} target={info.target} rel={info.target === '_blank' ? "noopener noreferrer" : ""} class="text-gray-300 hover:text-cyan-400 transition-colors text-base font-medium truncate">
+              {info.valor}
+            </a>
+          </div>
+        ))}
       </div>
     </div>
 
@@ -44,20 +49,16 @@
           ¡Mensaje enviado! Te responderé en menos de 24 horas.
         </div>
 
-        <div>
-          <label for="nombre" class="block text-xs font-mono text-gray-500 mb-2 uppercase tracking-wide">Nombre</label>
-          <input type="text" id="nombre" name="nombre" required class="w-full bg-gray-950/50 border border-gray-800 rounded-lg px-4 py-3 text-white placeholder-gray-700 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300" placeholder="Tu nombre">
-        </div>
-
-        <div>
-          <label for="email" class="block text-xs font-mono text-gray-500 mb-2 uppercase tracking-wide">Email</label>
-          <input type="email" id="email" name="email" required class="w-full bg-gray-950/50 border border-gray-800 rounded-lg px-4 py-3 text-white placeholder-gray-700 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300" placeholder="tu@email.com">
-        </div>
-
-        <div>
-          <label for="mensaje" class="block text-xs font-mono text-gray-500 mb-2 uppercase tracking-wide">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required class="w-full bg-gray-950/50 border border-gray-800 rounded-lg px-4 py-3 text-white placeholder-gray-700 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300 resize-none" placeholder="Hola, te escribo para..."></textarea>
-        </div>
+        {camposFormulario.map((campo) => (
+          <div>
+            <label for={campo.id} class={clasesLabel}>{campo.label}</label>
+            {campo.esTextarea ? (
+              <textarea id={campo.id} name={campo.id} rows={campo.filas} required class={`${clasesInput} resize-none`} placeholder={campo.placeholder}></textarea>
+            ) : (
+              <input type={campo.tipo} id={campo.id} name={campo.id} required class={clasesInput} placeholder={campo.placeholder} />
+            )}
+          </div>
+        ))}
 
         <button type="submit" class="w-full inline-flex justify-center items-center gap-2 font-bold py-3.5 px-6 rounded-lg transition-all duration-300 border border-orange-500 bg-orange-500 hover:bg-orange-400 text-gray-900 hover:-translate-y-1 hover:shadow-[0_8px_20px_-8px_rgba(249,115,22,0.6)]">
           Enviar mensaje

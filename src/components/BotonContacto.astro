@@ -15,8 +15,8 @@ const estiloFinal = variante === "primario" ? clasesPrimario : clasesSecundario;
 const iconoHex = variante === "secundario" && colorIcono === "ffffff" ? "60a5fa" : colorIcono;
 const urlIcono = `https://api.iconify.design/${icono}.svg?color=%23${iconoHex}`;
 
-// Si es un correo, no queremos que se abra en una pestaña nueva (_blank)
-const targetLink = link.startsWith('mailto:') ? '_self' : '_blank';
+// Si es un correo o un enlace interno (#), no queremos que se abra en una pestaña nueva (_blank)
+const targetLink = link.startsWith('mailto:') || link.startsWith('#') ? '_self' : '_blank';
 ---
 
 <a href={link} target={targetLink} rel="noopener noreferrer" class={`${clasesBase} ${estiloFinal}`}>
