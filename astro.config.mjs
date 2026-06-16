@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 
 export default defineConfig({
-  site: 'https://Btncr13.github.io',
+  site: 'https://btncr13.github.io',
   base: '/portfolio-dev',
   integrations: [icon()],
   vite: {
