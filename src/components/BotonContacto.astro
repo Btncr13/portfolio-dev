@@ -1,25 +1,42 @@
 ---
-const { texto, link = '', icono, variante = "secundario", colorIcono = "ffffff" } = Astro.props;
+// Importamos el componente nativo de astro-icon
+import { Icon } from 'astro-icon/components';
 
-// Clases comunes para todos los botones
+interface Props {
+  texto: string;
+  link?: string;
+  icono: string;
+  variante?: "primario" | "secundario";
+}
+
+const { 
+  texto, 
+  link = '#', 
+  icono, 
+  variante = "secundario"
+} = Astro.props;
+
+// Clases comunes
 const clasesBase = "inline-flex items-center gap-2 font-semibold py-2 px-6 rounded-lg transition-all duration-300 border text-base";
 
-// Clases específicas para cada estilo
+// Clases específicas (El color del icono ahora hereda automáticamente de text-gray-900 o text-blue-400)
 const clasesPrimario = "bg-orange-500 hover:bg-orange-400 text-gray-900 border-orange-500 font-bold hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/20";
 const clasesSecundario = "bg-transparent text-blue-400 border-blue-400 hover:bg-blue-400/10 hover:border-blue-300 hover:text-blue-300 hover:shadow-lg hover:shadow-blue-500/30";
 
-// Estilo final en función de la prop "variante"
 const estiloFinal = variante === "primario" ? clasesPrimario : clasesSecundario;
 
-// Ajuste del color del icono (60a5fa es el equivalente al tono blue-400 de Tailwind)
-const iconoHex = variante === "secundario" && colorIcono === "ffffff" ? "60a5fa" : colorIcono;
-const urlIcono = `https://api.iconify.design/${icono}.svg?color=%23${iconoHex}`;
-
-// Si es un correo o un enlace interno (#), no queremos que se abra en una pestaña nueva (_blank)
-const targetLink = link?.startsWith('mailto:') || link?.startsWith('#') ? '_self' : '_blank';
+// Lógica de enlaces seguros
+const esInterno = link.startsWith('mailto:') || link.startsWith('#') || link.startsWith('/');
+const targetLink = esInterno ? '_self' : '_blank';
+const relAttr = esInterno ? null : 'noopener noreferrer';
 ---
 
-<a href={link} target={targetLink} rel="noopener noreferrer" class={`${clasesBase} ${estiloFinal}`}>
-  <img src={urlIcono} class="w-5 h-5 shrink-0" alt="" />
+<a 
+  href={link} 
+  target={targetLink} 
+  rel={relAttr} 
+  class:list={[clasesBase, estiloFinal]}
+>
+  <Icon name={icono} class="w-5 h-5 shrink-0" aria-hidden="true" />
   {texto}
 </a>
